@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useSnackbar } from 'notistack';
 
 import { loginUser } from '../../../features/auth/authSlice';
-import { FormContainer, Root, StyledAvatar, StyledPaper, SubmitButton } from "../../../components/Auth/AuthStyles";
+import { FormContainer, Root, StyledAvatar, StyledPaper, SubmitButton } from "../AuthStyles";
 import { validateEmail, required } from "../../../utils/formValidators";
 
 const Login = () => {

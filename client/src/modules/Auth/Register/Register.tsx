@@ -7,13 +7,9 @@ import { useDispatch } from 'react-redux';
 import { useSnackbar } from 'notistack';
 
 import { registerUser } from '../../../features/auth/authSlice';
-import { FormContainer, Root, StyledAvatar, StyledPaper, SubmitButton } from '../../../components/Auth/AuthStyles';
+import { FormContainer, Root, StyledAvatar, StyledPaper, SubmitButton } from '../AuthStyles';
 import { validateEmail, required } from '../../../utils/formValidators';
-
-interface FormErrors {
-	password?: string;
-	confirmPassword?: string;
-}
+import { FormErrors } from './RegisterInterface';
 
 const Register = () => {
 	const dispatch = useDispatch();
@@ -103,7 +99,7 @@ const Register = () => {
 											/>
 										)}
 									</Field>
-                                    <Field name='confirmPassword' validate={required}>
+									<Field name='confirmPassword' validate={required}>
 										{({ input, meta }) => (
 											<TextField
 												{...input}
