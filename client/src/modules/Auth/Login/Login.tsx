@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import { Grid, CssBaseline, Typography, TextField, Link } from "@mui/material";
+import { Grid, Typography, TextField, Link } from "@mui/material";
 import { LockOutlined } from '@mui/icons-material';
 import { Form, Field } from 'react-final-form';
 import { useDispatch } from 'react-redux';
@@ -29,8 +29,7 @@ const Login = () => {
 
     return (
         <Root container>
-            <CssBaseline />
-            <Grid item xs={12} sm={8} md={5} component={StyledPaper} elevation={1} square>
+            <Grid item xs={12} sm={8} md={6} component={StyledPaper} elevation={1} square>
                 <Grid container>
                     <Grid item xs={12} sx={{ margin: 'auto' }}>
                         <StyledAvatar>
@@ -55,9 +54,8 @@ const Login = () => {
                                                 fullWidth
                                                 id="email"
                                                 label="Email"
-                                                autoFocus
                                                 error={meta.error && meta.touched}
-                                                helperText={meta.error && meta.touched ? meta.error : undefined}
+                                                helperText={meta.error && meta.touched ? meta.error : ' '}
                                             />
                                         )}
                                     </Field>
@@ -74,7 +72,7 @@ const Login = () => {
                                                 type="password"
                                                 autoComplete="current-password"
                                                 error={meta.error && meta.touched}
-                                                helperText={meta.error && meta.touched ? meta.error : undefined}
+                                                helperText={meta.error && meta.touched ? meta.error : ' '}
                                             />
                                         )}
                                     </Field>

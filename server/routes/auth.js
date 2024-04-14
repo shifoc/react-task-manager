@@ -8,6 +8,18 @@ const User = require('../db/userModel');
 
 // register endpoint
 router.post('/register', (request, response) => {
+    if (!request.body.email || !request.body.password) {
+        return response.status(400).send({
+            message: 'Email and Password are required'
+        });
+    }
+
+    if (request.body.password.length < 8) {
+        return response.status(400).send({
+            message: 'Password must be at least 8 characters long'
+        });
+    }
+
     // hash the password
     bcrypt
         .hash(request.body.password, 10)

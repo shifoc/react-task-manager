@@ -20,7 +20,7 @@ const Register = () => {
 	const navigate = useNavigate();
 	const { enqueueSnackbar } = useSnackbar();
 
-	const onSubmit = async (values: { email: string; password: string; confirmPassword: any }) => {
+	const onSubmit = async (values: { email: string; password: string; confirmPassword: string }) => {
 		try {
 			await dispatch(
 				registerUser({
@@ -38,7 +38,7 @@ const Register = () => {
 	return (
 		<Root container>
 			<CssBaseline />
-			<Grid item xs={12} sm={8} md={5} component={StyledPaper} elevation={1} square>
+			<Grid item xs={12} sm={8} md={6} component={StyledPaper} elevation={1} square>
 				<Grid container>
 					<Grid item xs={12} sx={{ margin: 'auto' }}>
 						<StyledAvatar>
@@ -82,7 +82,7 @@ const Register = () => {
 												label='Email'
 												autoFocus
 												error={meta.error && meta.touched}
-												helperText={meta.error && meta.touched ? meta.error : undefined}
+												helperText={meta.error && meta.touched ? meta.error : ' '}
 											/>
 										)}
 									</Field>
@@ -99,7 +99,7 @@ const Register = () => {
 												type='password'
 												autoComplete='new-password'
 												error={meta.error && meta.touched}
-												helperText={meta.error && meta.touched ? meta.error : undefined}
+												helperText={meta.error && meta.touched ? meta.error : ' '}
 											/>
 										)}
 									</Field>
@@ -115,7 +115,7 @@ const Register = () => {
 												label='Confirm Password'
 												type='password'
 												error={meta.error && meta.touched}
-												helperText={meta.error && meta.touched ? meta.error : undefined}
+												helperText={meta.error && meta.touched ? meta.error : ' '}
 											/>
 										)}
 									</Field>
