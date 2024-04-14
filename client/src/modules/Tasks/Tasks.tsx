@@ -40,7 +40,7 @@ function Tasks() {
                             </Typography>
                         ) : (
                             <Box>
-                                <TaskList tasks={taskState.filteredTasks} />
+                                <TaskList tasks={taskState.filteredTasks} filter={taskState.filter}/>
                                 <Typography align="right">{taskState.filteredTasks.length} tasks</Typography>
                             </Box>
                         )}

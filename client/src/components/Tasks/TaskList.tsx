@@ -6,7 +6,7 @@ import { Task } from '../../types/taskTypes'; // Your task state types
 import { reorderTasks } from '../../features/tasks/tasksSlice';
 import TaskItem from './TaskItem';
 
-function TaskList({ tasks }: { tasks: Task[] }) {
+function TaskList({ tasks, filter }: { tasks: Task[], filter: string }) {
     const dispatch = useDispatch();
 
     const handleOnDragEnd = (result: DropResult) => {
@@ -21,9 +21,9 @@ function TaskList({ tasks }: { tasks: Task[] }) {
         <DragDropContext onDragEnd={handleOnDragEnd}>
             <Droppable droppableId="tasks">
                 {(provided) => (
-                    <List {...provided.droppableProps} ref={provided.innerRef} sx={{ maxHeight: '50vh', overflow: 'auto' }}>
+                    <List {...provided.droppableProps} ref={provided.innerRef} sx={{ maxHeight: '40vh', overflow: 'auto' }}>
                         {tasks.map((task, index) => (
-                            <Draggable key={task._id} draggableId={task._id} index={index}>
+                            <Draggable key={task._id} draggableId={task._id} index={index} isDragDisabled={filter !== 'all'}>
                                 {(provided) => (
                                     <Box
                                         ref={provided.innerRef}
