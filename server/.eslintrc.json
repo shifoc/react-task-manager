@@ -1,0 +1,69 @@
+{
+	"root": true,
+	"env": {
+		"commonjs": true,
+		"es2021": true,
+		"es2024": true,
+		"node": true
+	},
+	"plugins": [
+		"node",
+		"import",
+		"simple-import-sort"
+	],
+	"extends": [
+		"eslint:recommended",
+		"standard"
+	],
+	"ignorePatterns": [
+		"node_modules"
+	],
+	"overrides": [],
+	"parserOptions": {
+		"ecmaVersion": "latest"
+	},
+	"rules": {
+		"no-underscore-dangle": "off",
+		"linebreak-style": 0,
+		"semi": [
+			"error",
+			"always"
+		],
+		"object-curly-spacing": [
+			"error",
+			"always"
+		],
+		"array-bracket-spacing": "off",
+		"comma-dangle": [
+			"error",
+			"never"
+		],
+		"prefer-const": [
+			"error",
+			{
+				"destructuring": "any",
+				"ignoreReadBeforeAssign": false
+			}
+		],
+		"no-empty": [
+			"error",
+			{
+				"allowEmptyCatch": true
+			}
+		],
+		"no-trailing-spaces": "off",
+		"no-process-exit": "off",
+		"simple-import-sort/imports": "error",
+		"simple-import-sort/exports": "error",
+		"import/first": "error",
+		"import/newline-after-import": "error",
+		"no-tabs": "off",
+		"multiline-ternary": "off",
+		"import/extensions": "off",
+		"indent": "off",
+		"implicit-arrow-linebreak": "off",
+		"no-multiple-empty-lines": "off",
+		"@typescript-eslint/quotes": "off",
+		"space-before-function-paren": "off"
+	}
+}
