@@ -18,6 +18,7 @@
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
     "final-form": "^4.20.10",
+    "jwt-decode": "^4.0.0",
     "notistack": "^3.0.1",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
@@ -25,10 +26,10 @@
     "react-final-form": "^6.5.9",
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.22.3",
-    "sass": "^1.75.0",
-    "tailwind": "^4.0.0"
+    "sass": "^1.75.0"
   },
   "devDependencies": {
+    "@types/jwt-decode": "^3.1.0",
     "@types/react": "^18.2.66",
     "@types/react-beautiful-dnd": "^13.1.8",
     "@types/react-dom": "^18.2.22",
