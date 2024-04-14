@@ -3,6 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 const Task = require('../db/taskModel');
+const logger = require('../config/winston')(__filename);
+
 
 // Create a new Task
 router.post('/tasks', async (req, res) => {
@@ -16,7 +18,7 @@ router.post('/tasks', async (req, res) => {
         const savedTask = await newTask.save();
         res.json(savedTask);
     } catch (err) {
-        console.error(err);
+        logger.error('Error creating task', err);
         res.status(400).json({ error: 'Unable to add this task' });
     }
 });
@@ -49,7 +51,10 @@ router.put('/tasks/:id', (req, res) => {
             }
             res.json(task);
         })
-        .catch(_err => res.status(400).json({ error: 'Unable to update the task' }));
+        .catch(err => { 
+            logger.error('Unable to update the task', err);
+            res.status(400).json({ error: 'Unable to update the task' });
+         });
 });
 
 // Delete Task by id
@@ -62,6 +67,7 @@ router.delete('/tasks/:id', (req, res) => {
             res.status(200).json({ success: true, message: 'Task deleted successfully.', taskId: req.params.id });
         })
         .catch(err => {
+            logger.error('Failed to delete the task', err);
             res.status(500).json({ error: 'Failed to delete the task', details: err.message });
         });
 });

@@ -5,6 +5,7 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../db/userModel');
+const logger = require('../config/winston')(__filename);
 
 // register endpoint
 router.post('/register', (request, response) => {
@@ -52,7 +53,8 @@ router.post('/register', (request, response) => {
                     });
                 })
                 // catch error if the new user wasn't added successfully to the database
-                .catch((_error) => {
+                .catch((error) => {
+                    logger.error('Error creating user', error);
                     response.status(500).send({
                         message: 'Error creating user'
                     });
