@@ -9,14 +9,15 @@ import { useSnackbar } from 'notistack';
 import { registerUser } from '../../../features/auth/authSlice';
 import { FormContainer, Root, StyledAvatar, StyledPaper, SubmitButton } from '../AuthStyles';
 import { validateEmail, required } from '../../../utils/formValidators';
-import { FormErrors } from './RegisterInterface';
+import { FormErrors, RegisterFormData } from './RegisterInterface';
 
 const Register = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const { enqueueSnackbar } = useSnackbar();
 
-	const onSubmit = async (values: { email: string; password: string; confirmPassword: string }) => {
+	// Handler for form submission
+	const onSubmit = async (values: RegisterFormData) => {
 		try {
 			await dispatch(
 				registerUser({
@@ -26,7 +27,7 @@ const Register = () => {
 			).unwrap(); // Ensure the promise returned by dispatch is fulfilled
 			navigate('/tasks'); // Redirect on success
 		} catch (error: any) {
-			console.error('Registration failed:', error);
+			// Display error message in snackbar if Registration fails
 			enqueueSnackbar('Registration failed: ' + (error.message || 'Unknown error'), { variant: 'error' });
 		}
 	};
@@ -59,6 +60,7 @@ const Register = () => {
 								if (values.password && values.password.length < 8) {
 									errors.password = 'Password must be at least 8 characters long';
 								}
+								// Validate password match
 								if (values.password && values.confirmPassword && values.password !== values.confirmPassword) {
 									errors.confirmPassword = 'Passwords do not match';
 								}

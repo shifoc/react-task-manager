@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTasks, selectTasks } from '../../features/tasks/tasksSlice';
-import AddTask from '../../components/Tasks/AddTask';
-import TaskList from '../../components/Tasks/TaskList';
-import TaskFilter from '../../components/Tasks/TaskFilter';
 import { Box, CircularProgress, Container, Grid, Paper, Typography } from '@mui/material';
+
+import { fetchTasks, selectTasks } from '../../features/tasks/tasksSlice';
+import AddTask from '../../components/Tasks/AddTask/AddTask';
+import TaskList from '../../components/Tasks/TaskList/TaskList';
+import TaskFilter from '../../components/Tasks/TaskFIlter/TaskFilter';
 
 function Tasks() {
     const dispatch = useDispatch();
@@ -27,21 +28,24 @@ function Tasks() {
                         <AddTask />
                     </Grid>
                     <Grid item xs={12}>
-                        <TaskFilter />
+                        <TaskFilter filter={taskState.filter} />
                     </Grid>
                     <Grid item xs={12}>
                         {taskState.status === 'loading' ? (
+                            // Display loading spinner while fetching tasks
                             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                                 <CircularProgress />
                             </Box>
                         ) : taskState.error ? (
+                            // Display error message if fetching tasks fails
                             <Typography color='error' align='center'>
                                 {taskState.error}
                             </Typography>
                         ) : (
+                            // Display task list if tasks are fetched successfully
                             <Box>
-                                <TaskList tasks={taskState.filteredTasks} filter={taskState.filter}/>
-                                <Typography align="right">{taskState.filteredTasks.length} tasks</Typography>
+                                <TaskList tasks={taskState.filteredTasks} filter={taskState.filter} />
+                                <Typography align='right'>{taskState.filteredTasks.length} tasks</Typography>
                             </Box>
                         )}
                     </Grid>

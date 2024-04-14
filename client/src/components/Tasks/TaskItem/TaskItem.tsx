@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
-import {
-	Checkbox,
-	IconButton,
-	ListItem,
-	ListItemButton,
-	ListItemIcon,
-	ListItemText,
-	TextField
-} from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { Checkbox, IconButton, ListItemButton, ListItemIcon, ListItemText, TextField } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
@@ -16,15 +7,11 @@ import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch } from 'react-redux';
-import { Task } from '../../types/taskTypes';
-import { deleteTask, updateTask } from '../../features/tasks/tasksSlice';
-import ConfirmDialog from '../ConfirmDialog';
 
-const StyledListItem = styled(ListItem)(({ theme }) => ({
-	'&:hover': {
-		backgroundColor: theme.palette.grey[200]
-	}
-}));
+import { Task } from '../../../types/taskTypes';
+import { deleteTask, updateTask } from '../../../features/tasks/tasksSlice';
+import ConfirmDialog from '../../ConfirmationDialog/ConfirmationDialog';
+import { StyledListItem } from './TaskItemStyles';
 
 const TaskItem = ({ task }: { task: Task }) => {
 	const dispatch = useDispatch();
@@ -37,7 +24,7 @@ const TaskItem = ({ task }: { task: Task }) => {
 	};
 
 	const handleSave = () => {
-        if (!editedTitle) return;
+		if (!editedTitle) return;
 		dispatch(updateTask({ ...task, title: editedTitle }));
 		setEditMode(false);
 	};
@@ -69,19 +56,19 @@ const TaskItem = ({ task }: { task: Task }) => {
 				</ListItemIcon>
 				{editMode ? (
 					<>
-                        <TextField
-                            fullWidth
-                            value={editedTitle}
-                            onChange={(e) => {
-                                setEditedTitle(e.target.value);
-                            }}
-                            autoFocus
-                            required
-                            InputProps={{
-                                disableUnderline: true
-                            }}
-                            variant='standard'
-                        />
+						<TextField
+							fullWidth
+							value={editedTitle}
+							onChange={(e) => {
+								setEditedTitle(e.target.value);
+							}}
+							autoFocus
+							required
+							InputProps={{
+								disableUnderline: true
+							}}
+							variant='standard'
+						/>
 						<IconButton onClick={handleSave} aria-label='save task'>
 							<CheckIcon />
 						</IconButton>

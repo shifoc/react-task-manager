@@ -1,10 +1,11 @@
 
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography } from '@mui/material';
-import { useDispatch } from 'react-redux';
-import { logoutUser } from '../features/auth/authSlice';
-import { Logout } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { AppBar, Toolbar, IconButton, Typography } from '@mui/material';
+import { Logout } from '@mui/icons-material';
+
+import { logoutUser } from '../../features/auth/authSlice';
 
 const ResponsiveAppBar = () => {
     const dispatch = useDispatch();

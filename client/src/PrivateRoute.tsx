@@ -1,4 +1,4 @@
-import { Navigate, Outlet, RouteProps } from 'react-router-dom';
+import { Navigate, RouteProps } from 'react-router-dom';
 import { isAuthenticated } from './services/auth';
 
 export function PrivateRoute({ children }: RouteProps): JSX.Element {

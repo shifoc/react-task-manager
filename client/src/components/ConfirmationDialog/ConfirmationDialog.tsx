@@ -1,15 +1,8 @@
 import React from 'react';
 import { Dialog, DialogActions, DialogContent, DialogContentText, Button } from '@mui/material';
+import { ConfirmationDialogProps } from './ConfirmationDialogInterface';
 
-interface ConfirmDialogProps {
-    open: boolean;
-    handleClose: () => void;
-    handleConfirm: () => void;
-    title: string;
-    children: React.ReactNode;
-}
-
-const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ open, handleClose, handleConfirm, title, children }) => {
+const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({ open, handleClose, handleConfirm, title, children }) => {
     return (
         <Dialog
             open={open}
@@ -32,4 +25,4 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ open, handleClose, handle
     );
 };
 
-export default ConfirmDialog;
+export default ConfirmationDialog;

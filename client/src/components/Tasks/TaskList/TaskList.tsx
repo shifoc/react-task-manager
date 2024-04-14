@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 import { Box, List } from '@mui/material';
-import { Task } from '../../types/taskTypes'; // Your task state types
-import { reorderTasks } from '../../features/tasks/tasksSlice';
-import TaskItem from './TaskItem';
+import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 
-function TaskList({ tasks, filter }: { tasks: Task[], filter: string }) {
+import { reorderTasks } from '../../../features/tasks/tasksSlice';
+import TaskItem from '../TaskItem/TaskItem';
+import { TaskListInterface } from './TaskListInterface';
+
+function TaskList({ tasks, filter }: TaskListInterface) {
     const dispatch = useDispatch();
 
     const handleOnDragEnd = (result: DropResult) => {

@@ -9,13 +9,15 @@ import { useSnackbar } from 'notistack';
 import { loginUser } from '../../../features/auth/authSlice';
 import { FormContainer, Root, StyledAvatar, StyledPaper, SubmitButton } from "../AuthStyles";
 import { validateEmail, required } from "../../../utils/formValidators";
+import { LoginFormData } from "./LoginInterface";
 
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { enqueueSnackbar } = useSnackbar();
 
-    const onSubmit = async (values: { email: string; password: string }) => {
+    // Handler for form submission
+    const onSubmit = async (values: LoginFormData) => {
         try {
             await dispatch(loginUser({
                 email: values.email,
@@ -23,6 +25,7 @@ const Login = () => {
             })).unwrap(); // Ensure the promise returned by dispatch is fulfilled
             navigate('/tasks'); // Redirect on success
         } catch (error: any) {
+            // Display error message in snackbar if login fails
             enqueueSnackbar('Login failed: ' + (error.message || 'Unknown error'), { variant: 'error' });
         }
     };
