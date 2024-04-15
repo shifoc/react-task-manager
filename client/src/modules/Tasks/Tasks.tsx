@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Box, CircularProgress, Container, Grid, Paper, Typography } from '@mui/material';
 
 import { fetchTasks, selectTasks } from '../../features/tasks/tasksSlice';
-import AddTask from '../../components/Tasks/AddTask/AddTask';
-import TaskList from '../../components/Tasks/TaskList/TaskList';
-import TaskFilter from '../../components/Tasks/TaskFIlter/TaskFilter';
+import AddTask from './components/AddTask/AddTask';
+import TaskList from './components/TaskList/TaskList';
+import TaskFilter from './components/TaskFilter/TaskFilter';
 
 function Tasks() {
     const dispatch = useDispatch();

@@ -8,9 +8,10 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch } from 'react-redux';
 
-import { Task } from '../../../types/taskTypes';
-import { deleteTask, updateTask } from '../../../features/tasks/tasksSlice';
-import ConfirmDialog from '../../ConfirmationDialog/ConfirmationDialog';
+
+import { deleteTask, updateTask } from '../../../../features/tasks/tasksSlice';
+import { Task } from '../../../../shared/types/taskTypes';
+import ConfirmDialog from '../../../../shared/components/ConfirmationDialog/ConfirmationDialog';
 import { StyledListItem } from './TaskItemStyles';
 
 const TaskItem = ({ task }: { task: Task }) => {

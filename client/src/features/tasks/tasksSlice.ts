@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { Task, TasksState } from '../../types/taskTypes';
-import instance from '../../api/axiosConfig';
+import { Task, TasksState } from '../../shared/types/taskTypes';
+import instance from '../../shared/configs/axiosConfig';
 
 const initialState: TasksState = {
     tasks: [],

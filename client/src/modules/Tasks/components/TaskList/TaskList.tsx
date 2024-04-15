@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Box, List } from '@mui/material';
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 
-import { reorderTasks } from '../../../features/tasks/tasksSlice';
+import { reorderTasks } from '../../../../features/tasks/tasksSlice';
 import TaskItem from '../TaskItem/TaskItem';
 import { TaskListInterface } from './TaskListInterface';
 

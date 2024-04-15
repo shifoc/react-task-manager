@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { User, AuthState } from '../../types/userTypes';
+import { User, AuthState } from '../../shared/types/userTypes';
 
 // Retrieve user from localStorage, if available
 const userString = localStorage.getItem('user');

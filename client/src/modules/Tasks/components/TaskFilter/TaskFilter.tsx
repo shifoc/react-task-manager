@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Box, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
 
-import { setFilter } from '../../../features/tasks/tasksSlice';
+import { setFilter } from '../../../../features/tasks/tasksSlice';
 import { TaskFilterInterface } from './TaskFilterInterface';
 
 function TaskFilter({ filter }: TaskFilterInterface) {

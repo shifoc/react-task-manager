@@ -8,7 +8,7 @@ import { useSnackbar } from 'notistack';
 
 import { loginUser } from '../../../features/auth/authSlice';
 import { FormContainer, Root, StyledAvatar, StyledPaper, SubmitButton } from "../AuthStyles";
-import { validateEmail, required } from "../../../utils/formValidators";
+import { validateEmail, required } from "../../../shared/utils/formValidators";
 import { LoginFormData } from "./LoginInterface";
 
 const Login = () => {

@@ -1,4 +1,4 @@
-import { Task } from "../../../types/taskTypes";
+import { Task } from "../../../shared/types/taskTypes";
 
 export interface TaskListInterface {
 	tasks: Task[];

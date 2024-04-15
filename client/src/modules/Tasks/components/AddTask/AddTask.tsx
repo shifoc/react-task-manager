@@ -4,7 +4,7 @@ import { CreateOutlined } from '@mui/icons-material/';
 import { Form, Field } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 
-import { addTask } from '../../../features/tasks/tasksSlice';
+import { addTask } from '../../../../features/tasks/tasksSlice';
 import { TaskFormData } from './AddTaskInterface';
 import './AddTask.scss';
 

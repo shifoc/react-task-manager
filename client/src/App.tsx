@@ -3,7 +3,7 @@ import { RouterProvider, Route, Navigate, createBrowserRouter, createRoutesFromE
 import { StyledEngineProvider } from '@mui/material/styles';
 import Login from './modules/Auth/Login/Login';
 import Register from './modules/Auth/Register/Register';
-import Layout from './shared/Layout/Layout';
+import Layout from './shared/components/Layout/Layout';
 import Tasks from './modules/Tasks/Tasks';
 import PrivateRoute from './PrivateRoute';
 

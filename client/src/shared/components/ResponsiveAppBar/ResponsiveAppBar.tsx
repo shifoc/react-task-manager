@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { AppBar, Toolbar, IconButton, Typography } from '@mui/material';
 import { Logout } from '@mui/icons-material';
 
-import { logoutUser } from '../../features/auth/authSlice';
+import { logoutUser } from '../../../features/auth/authSlice';
 
 const ResponsiveAppBar = () => {
     const dispatch = useDispatch();
