@@ -96,7 +96,7 @@ router.post('/login', (request, response) => {
 							userEmail: user.email
 						},
 						process.env.JWT_KEY,
-						{ expiresIn: '1h' }
+						{ expiresIn: '6h' }
 					);
 
 					//   return success response
